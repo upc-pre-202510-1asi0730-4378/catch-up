@@ -4,17 +4,17 @@ import {Source} from "../model/source.entity.js";
 const logoApiService = new LogoApiService();
 
 export class SourceAssembler {
-    static ToEntityFromResource(resource) {
+    static toEntityFromResource(resource) {
         let source = new Source({...resource});
         source.urlToLogo = logoApiService.getUrlToLogo(source);
         return source;
     }
-    static ToEntitiesFromResponse(response) {
+    static toEntitiesFromResponse(response) {
         if (response.data.status !== "ok") {
             console.error(`${response.data.status} - ${response.data.code}: ${response.data.message}.`);
             return [];
         }
         const sourcesResponse = response.data;
-        return sourcesResponse.sources.map(source => { return this.ToEntityFromResource(source);});
+        return sourcesResponse.sources.map(source => { return this.toEntityFromResource(source);});
     }
 }

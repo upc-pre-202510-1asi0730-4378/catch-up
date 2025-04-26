@@ -13,7 +13,16 @@ export class ArticleAssembler {
         let article = new Article({...resource});
         article.source = this.source && this.source.id === resource.source.id 
             ? this.source 
-            : SourceAssembler.ToEntityFromResource(resource.source);
+            : SourceAssembler.toEntityFromResource(resource.source);
         return article;
+    }
+    
+    static toEntitiesFromResponse(response) {
+        if (response.data.status !== "ok") {
+            console.error(`${response.data.status} - ${response.data.code}: ${response.data.message}.`);
+            return [];
+        }
+        const articlesResponse = response.data;
+        return articlesResponse["articles"].map(article => { return this.toEntityFromResource(article);});
     }
 }
