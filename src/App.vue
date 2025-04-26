@@ -63,7 +63,7 @@ export default {
           <source-list v-model:visible="drawerVisible" v-model:sources="sources" v-on:source-selected="setSource"/>
         </template>
         <template #end>
-          <language-switcher></language-switcher>
+          <language-switcher/>
         </template>
       </pv-menubar>
     </div>
