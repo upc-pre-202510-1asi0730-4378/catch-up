@@ -6,7 +6,7 @@ import PrimeVue from 'primevue/config';
 import Material from '@primeuix/themes/material';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
-import {Avatar, Button, Card, Drawer, Menu, Toolbar, Tooltip} from "primevue";
+import {Avatar, Button, Card, Drawer, Menu, Menubar, Toolbar, Tooltip} from "primevue";
 
 const app = createApp(App);
 
@@ -18,6 +18,7 @@ app.use(i18n)
     .component('pv-drawer', Drawer)
     .component('pv-avatar', Avatar)
     .component('pv-menu', Menu)
+    .component('pv-menubar', Menubar)
     .component('pv-toolbar', Toolbar)
     .component('pv-tooltip', Tooltip)
     .component('pv-image', Image)
